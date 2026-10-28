@@ -1,6 +1,5 @@
 <?php
 
     $routes = [
-        '' => 'HomeController@index',
-        'testing' => 'HomeController@testing'
+        '' => 'HomeController@index'        
     ];

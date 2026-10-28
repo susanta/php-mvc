@@ -17,9 +17,10 @@
 
         $controllerName = $route[0];
         $methodName = $route[1];
+        
         $controller = new $controllerName();
         $controller->$methodName();
-        
+
     } else {
         echo '404 - Page not found.';
     }   
