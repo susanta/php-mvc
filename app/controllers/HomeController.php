@@ -3,7 +3,7 @@
     class HomeController {
 
         public function index() {
-            echo base_url('Hello');
+            echo views_path('home/index.php');
 
             // $data = [
             //     'title' => 'Home Page',

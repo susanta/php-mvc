@@ -20,6 +20,14 @@
         return $protocol . $host . $base . '/' . ltrim($path, '/\\');
     }
 
+    function base_path($path = '') {
+        return realpath(__DIR__ . '/../' . '/' . ltrim($path, '/'));
+    }
+
+    function views_path($path = '') {
+        return base_path('app/views' . '/' . ltrim($path, '/'));
+    }
+
 
 
 
