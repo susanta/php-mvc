@@ -8,7 +8,7 @@
                 'message' => 'Welcome to the home page.'
             ];
 
-            render('home/index', $data);
+            render('home/index', $data, 'layouts/hero_layout');
 
             // require_once __DIR__ . '/../views/home/index.php';
         }
