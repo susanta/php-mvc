@@ -3,20 +3,13 @@
     class HomeController {
 
         public function index() {
-            $query = [
-                'name' => 'SOME NAME',
-                'age' => 40
+
+            $data = [
+                'title' => 'Home Page',
+                'message' => 'Welcome to the home page.'
             ];
 
-            $request = "about?id=1";
-            redirect($request,  $query);
-
-            // $data = [
-            //     'title' => 'Home Page',
-            //     'message' => 'Welcome to the home page.'
-            // ];
-
-            // render('home/index', $data, 'layouts/hero_layout');
+            render('home/index', $data, 'layouts/hero_layout');
         }
 
         public function about() {
