@@ -3,14 +3,16 @@
     class HomeController {
 
         public function index() {
-            $data = [
-                'title' => 'Home Page',
-                'message' => 'Welcome to the home page.'
-            ];
+            echo base_url('Hello');
 
-            render('home/index', $data, 'layouts/hero_layout');
+            // $data = [
+            //     'title' => 'Home Page',
+            //     'message' => 'Welcome to the home page.'
+            // ];
 
-            // require_once __DIR__ . '/../views/home/index.php';
+            // render('home/index', $data, 'layouts/hero_layout');
+
+            // // require_once __DIR__ . '/../views/home/index.php';
         }
 
         public function about() {
