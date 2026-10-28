@@ -1,3 +1,3 @@
 <?php
 
-    const BASE_URL = "http://localhost/projects";
+    const BASE_URL = "http://mvc-app.local/";
