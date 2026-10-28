@@ -3,7 +3,13 @@
     class HomeController {
 
         public function index() {
-            echo views_path('home/index.php');
+            $query = [
+                'name' => 'SOME NAME',
+                'age' => 40
+            ];
+
+            $request = "about?id=1";
+            redirect($request,  $query);
 
             // $data = [
             //     'title' => 'Home Page',
@@ -11,8 +17,6 @@
             // ];
 
             // render('home/index', $data, 'layouts/hero_layout');
-
-            // // require_once __DIR__ . '/../views/home/index.php';
         }
 
         public function about() {
