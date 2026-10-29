@@ -25,7 +25,6 @@
                 $this->connection = new PDO($dsn, $username, $password);
                 $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-
             } catch (PDOException $e) {
 
                die("Database failed:" . $e->getMessage());
@@ -33,5 +32,23 @@
             }
 
         }
+
+        public static function getInstance() 
+        {
+            if(self::$instance == null) {
+                self::$instance = new Database();
+            }
+
+            return self::$instance;
+        }
+
+        public function getConnection() 
+        {
+            return $this->connection;
+        }
+
+        private function __clone(){}
+
+        public function __wakeup(){}
 
     }
