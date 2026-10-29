@@ -4,6 +4,8 @@
 
         public function index() {
 
+            // $database = new Database();
+
             $data = [
                 'title' => 'Home Page',
                 'message' => 'Welcome to the home page.'
