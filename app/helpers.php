@@ -55,7 +55,7 @@
 
         $keys = explode('.', $key);
         $value = $config;
-        
+
         foreach($keys as $k){
             if(!isset($value[$k])){
                 throw new Exception("Config key '{$k}' not found");
@@ -63,4 +63,8 @@
             $value = $value[$k];
         }
         return $value;
+    }
+
+    function sanitize($value){
+        return htmlspecialchars(strip_tags($value));
     }

@@ -10,14 +10,6 @@
 
         'POST' => [
             '/register' => 'UserController@register',    
+            '/login' => 'UserController@loginUser',    
         ],
     ];
-
-
-
-
-    // $routes = [
-    //     '' => 'HomeController@index',        
-    //     'about' => 'HomeController@about',        
-    //     'user/register' => 'UserController@register',        
-    // ];
