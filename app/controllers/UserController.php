@@ -35,6 +35,10 @@
         }
 
         public function showProfile() {
+
+            $userId = $_SESSION['user_id'];
+
+
             $data = [
                 'title' => 'Profile'
             ];
@@ -58,7 +62,7 @@
 
             if($this->userModel->login()) {
 
-                $_SESSION['id'] = $this->userModel->id;
+                $_SESSION['user_id'] = $this->userModel->id;
                 $_SESSION['username'] = $this->userModel->username;
                 $_SESSION['first_name'] = $this->userModel->first_name;
                 $_SESSION['last_name'] = $this->userModel->last_name;
