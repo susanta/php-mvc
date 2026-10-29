@@ -25,4 +25,13 @@
 
             render('home/about', $data);
         }
+
+        public function contact() {
+            $data = [
+                'title' => 'Contact Page',
+                'message' => 'Welcome to the contact page.'
+            ];
+
+            render('home/contact', $data);
+        }
     }
