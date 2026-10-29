@@ -2,7 +2,7 @@
 
     class UserController {
 
-        public function register() {
+        public function showRegisterForm() {
 
             $data = [
                 'title' => 'Register'
@@ -11,9 +11,28 @@
              render('user/register', $data);
         }
 
-        public function registerUser() {
+        public function register() {
 
-             var_dump($_POST);
+             $user = new User();
+
+             $user->username = $_POST['username'];
+             $user->email = $_POST['email'];
+             $user->password = $_POST['password'];
+
+             if($user->store()) {
+                redirect('/');
+             } else {
+                echo "There was an error.";
+             }
+        }
+
+        public function showLoginForm() {
+
+            $data = [
+                'title' => 'Login'
+            ];
+
+             render('user/login', $data);
         }
         
     }
