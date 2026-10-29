@@ -52,12 +52,21 @@
 
                 $_SESSION['id'] = $this->userModel->id;
                 $_SESSION['username'] = $this->userModel->username;
-                redirect('/');
+                redirect('/dashboard');
 
             } else {
 
                 echo "There was an error";
                 
             }
+        }
+
+        public function logout() {
+
+            $_SESSION = [];
+            session_destroy();
+
+            redirect('user/login');
+
         }
     }

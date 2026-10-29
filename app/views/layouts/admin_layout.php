@@ -226,6 +226,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </a>
           </li>
+          <li>
+            <form action="<?php echo base_url('/logout'); ?>" method="post">
+              <button class="nav-link">Logout</button>
+            </form>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

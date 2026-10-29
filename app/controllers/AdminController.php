@@ -4,11 +4,13 @@
 
         public function __construct()
         {
+            AuthMiddleware::requiredLogin();
             
         }
 
         public function dashboard()
-        {
+        {            
+
             $data = [
                 'title' => 'Dashboard',
                 'message' => 'Welcome to the dashboard.',
