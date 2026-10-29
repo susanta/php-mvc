@@ -4,14 +4,14 @@
 
         public function index() {
 
-            // $database = new Database();
+            $database = new Database();
 
-            $data = [
-                'title' => 'Home Page',
-                'message' => 'Welcome to the home page.'
-            ];
+            // $data = [
+            //     'title' => 'Home Page',
+            //     'message' => 'Welcome to the home page.'
+            // ];
 
-            render('home/index', $data, 'layouts/hero_layout');
+            // render('home/index', $data, 'layouts/hero_layout');
         }
 
         public function about() {
