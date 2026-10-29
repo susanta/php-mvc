@@ -52,6 +52,8 @@
 
                 $_SESSION['id'] = $this->userModel->id;
                 $_SESSION['username'] = $this->userModel->username;
+                $_SESSION['first_name'] = $this->userModel->first_name;
+                $_SESSION['last_name'] = $this->userModel->last_name;
                 redirect('/dashboard');
 
             } else {
