@@ -10,11 +10,13 @@
             '/dashboard' => 'AdminController@dashboard', 
             '/admin' => 'AdminController@admin', 
             '/admin/users/profile' => 'UserController@showProfile', 
+             
         ],
 
         'POST' => [
             '/register' => 'UserController@register',    
             '/login' => 'UserController@loginUser',    
-            '/logout' => 'UserController@logout',    
+            '/logout' => 'UserController@logout', 
+            '/admin/users/update' => 'UserController@updateProfile',   
         ],
     ];
