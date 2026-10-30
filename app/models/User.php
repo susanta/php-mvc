@@ -5,6 +5,8 @@
         private $table = 'users';
         private $conn;
 
+        private $uploadDir = 'uploads/users/';
+
         public $id;
         public $username;
         public $password;
@@ -62,7 +64,33 @@
 
         }
 
+        public function handleImageUpload($file) 
+        {
+            $maxSize = 5 * 1024 * 1024; // MAX FILE SIZE 5MB
+            $tempLocation = $file['tmp_name'];
 
+            if($file['size'] > $maxSize) {
+                $_SESSION['error'] = 'File exceeds 5Mb limit.';
+                return false;
+            }
+            
+            $fileExtension = pathinfo($file['name'], PATHINFO_EXTENSION);
+            $fileName = uniqid('user_', true) . '.' . $fileExtension;
+
+            if(!file_exists($this->uploadDir)) {
+                mkdir($this->uploadDir, 0755, true);
+            }
+
+            $filePath = $this->uploadDir . $fileName;
+
+            if(move_uploaded_file($tempLocation, $filePath)) {
+                return $filePath;
+            } else {
+                $_SESSION['error'] = 'Failed to upload image.';
+                return false;
+            }
+            
+        }
 
 
         public function store()
