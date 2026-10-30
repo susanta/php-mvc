@@ -9,16 +9,33 @@
 
         public function get($path, $handler) 
         {
-            $this->routes['GET'][$path] = $handler;
+            $this->routes['GET'][$this->formatRoute($path)] = $handler;
 
-            var_dump($this->routes['GET'][$path]);
+            // echo "<pre>";
+            // print_r($path);
+            // echo "</pre>";
+
+            // echo "<pre>";
+            // print_r($handler);
+            // echo "</pre>";
+
+            // echo "<pre>";
+            // print_r($this->routes['GET'][$path]);
+            // echo "</pre>";
+
+            // var_dump($this->routes['GET'][$path]);
         }
 
-        public function post() 
+        public function post($path, $handler) 
         {
+            $this->routes['POST'][$this->formatRoute($path)] = $handler;
 
         }
 
+
+        protected function formatRoute($route) {
+            return '/' . trim($route, '/');
+        }
 
 
     }
