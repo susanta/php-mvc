@@ -8,7 +8,7 @@
             <div class="card-body box-profile">
                 <div class="text-center">
                     <img class="profile-user-img img-fluid img-circle"
-                         src="<?php echo $profile_image ?? 'uploads/dummy-profile.png'; ?>"
+                         src="<?php echo base_url($profile_image ?? 'uploads/dummy-profile.png'); ?>"
                          alt="User profile picture">
                 </div>
 

@@ -100,6 +100,8 @@
             } else {
                  $_SESSION['error'] = "Failed to update profile";
             }
+
+            redirect('/admin/users/profile');
         }
 
         public function showLoginForm() {
