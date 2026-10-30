@@ -177,7 +177,7 @@
         }
 
 
-        public function testMethod() {
-            var_dump('WORKS');
+        public function testMethod($id) {
+            var_dump($this->userModel->getUserById($id));
         }
     }

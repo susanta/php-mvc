@@ -1,8 +1,6 @@
 <?php
 
-    $router = new Route();
-
-    // $router->get('/user/test/{id}', 'UserController@testMethod');
+    $router = new Route();   
 
 
     $router->get('/', 'HomeController@index');
@@ -13,6 +11,9 @@
     $router->get('/dashboard', 'AdminController@dashboard');
     $router->get('/admin', 'AdminController@admin');
     $router->get('/admin/users/profile', 'UserController@showProfile');
+
+    $router->get('/users/test/{id}', 'UserController@testMethod');
+
 
 
     $router->post('/register', 'UserController@register');
