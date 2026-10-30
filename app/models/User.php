@@ -64,6 +64,18 @@
 
         }
 
+        public function updatePassword($userId, $newPasswod) 
+        {
+            $hashedPassword = password_hash($newPasswod, PASSWORD_BCRYPT);
+
+            $query = "UPDATE {$this->table} SET password = :password WHERE id = :id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
+
+            return $stmt->execute();
+        }
+
         public function handleImageUpload($file) 
         {
             $maxSize = 5 * 1024 * 1024; // MAX FILE SIZE 5MB

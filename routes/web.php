@@ -18,5 +18,6 @@
             '/login' => 'UserController@loginUser',    
             '/logout' => 'UserController@logout', 
             '/admin/users/update' => 'UserController@updateProfile',   
+            '/admin/profile/users/password/update' => 'UserController@updateUserProfilePassword',   
         ],
     ];
