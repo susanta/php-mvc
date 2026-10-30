@@ -2,7 +2,7 @@
 
     $router = new Route();
 
-    $router->get('/user/test/{any_values_or_params}', 'UserController@testMethod');
+    $router->get('/user/test/{id}', 'UserController@testMethod');
 
     $router->dispatch();
 

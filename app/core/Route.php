@@ -45,15 +45,33 @@
 
             $cleanRequest = $this->formatRoute($requestUri);
 
+            if($this->match($method, $cleanRequest)) {
+                $handler = $this->match($method, $cleanRequest);
+
+                var_dump($handler);
+            }
+
+        }
+
+        public function match($method, $requestUri) 
+        {
             foreach ($this->routes[$method] as $route => $handler) {
-                // var_dump($route);
-                // var_dump($handler);
 
                 $pattern = preg_replace('#\{[a-zA-Z0-9_]+}#', '([a-zA-Z0-9_]+)', $route);
 
-                var_dump($pattern);
+                if(preg_match('#^' . $pattern . '$#', $requestUri, $matches)) {
+
+                    array_shift($matches);
+
+                    return [
+                        'handler' => $handler,
+                        'params' => $matches
+                    ];
+                    
+                }
             }
 
+            return false;
         }
 
     }
