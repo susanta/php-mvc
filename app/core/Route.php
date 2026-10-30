@@ -32,10 +32,24 @@
 
         }
 
-
-        protected function formatRoute($route) {
+        protected function formatRoute($route) 
+        {
             return '/' . trim($route, '/');
         }
 
+
+        public function dispatch() 
+        {
+            $method = $_SERVER['REQUEST_METHOD'];
+            $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+            $cleanRequest = $this->formatRoute($requestUri);
+
+            foreach ($this->routes[$method] as $route => $handler) {
+                var_dump($route);
+                var_dump($handler);
+            }
+
+        }
 
     }

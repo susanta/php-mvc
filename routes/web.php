@@ -4,6 +4,8 @@
 
     $router->get('/user/test', 'UserController@testMethod');
 
+    $router->dispatch();
+
     $routes = [
         'GET' => [
             '/' => 'HomeController@index',        
