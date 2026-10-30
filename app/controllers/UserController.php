@@ -99,6 +99,7 @@
             if($updateStatus) {
                 // $_SESSION['message'] = "Profile updated succesfully";
                 setSessionMessage('message', 'Profile updated succesfully');
+                $_SESSION['active_tab'] = '#settings';
             } else {
                 //  $_SESSION['error'] = "Failed to update profile";
                 setSessionMessage('error', 'Failed to update profile');
@@ -127,6 +128,7 @@
 
             if($updatePasswordStatus) {
                 setSessionMessage('message', 'Password updated successfully/');
+                $_SESSION['active_tab'] = '#password';
             } else {
                 setSessionMessage('error', 'Failed to update password.');
             }
