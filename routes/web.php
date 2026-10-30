@@ -1,5 +1,9 @@
 <?php
 
+    $router = new Route();
+
+    $router->get('/user/test', 'UserController@testMethod');
+
     $routes = [
         'GET' => [
             '/' => 'HomeController@index',        

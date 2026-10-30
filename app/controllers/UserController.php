@@ -175,4 +175,9 @@
             redirect('user/login');
 
         }
+
+
+        public function testMethod() {
+            var_dump('WORKS');
+        }
     }
