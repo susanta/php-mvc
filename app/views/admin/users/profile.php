@@ -57,6 +57,13 @@
             </div>
         <?php endif; ?>
 
+        <?php if(isset($_SESSION['message'])) : ?>
+            <div class="alert alert-success">
+                <?php echo $_SESSION['message']; ?>
+                <?php unset($_SESSION['message']); ?>
+            </div>
+        <?php endif; ?>
+
         <div class="card">
             <div class="card-header p-2">
                 <ul class="nav nav-pills">

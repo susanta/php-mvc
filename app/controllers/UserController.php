@@ -87,7 +87,8 @@
                 if($imagePath) {
                     $userData['profile_image'] = $imagePath;
                 } else {
-                    $_SESSION['error'] = 'Failed to uploda image';
+                    // $_SESSION['error'] = 'Failed to uplod image';
+                    setSessionMessage('error', 'Failed to uplod image');
                     redirect('/admin/users/profile');
                 }
 
@@ -96,9 +97,11 @@
             $updateStatus = $this->userModel->update($userId, $userData);
 
             if($updateStatus) {
-                $_SESSION['message'] = "Profile updated succesfully";
+                // $_SESSION['message'] = "Profile updated succesfully";
+                setSessionMessage('message', 'Profile updated succesfully');
             } else {
-                 $_SESSION['error'] = "Failed to update profile";
+                //  $_SESSION['error'] = "Failed to update profile";
+                setSessionMessage('error', 'Failed to update profile');
             }
 
             redirect('/admin/users/profile');
