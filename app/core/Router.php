@@ -35,6 +35,22 @@
             return new static;
         }
 
+        public static function route($name, $params = [])
+        {
+            if(!isset(self::$nameRoutes[$name])) {
+                throw new Exception('ROute $name does not exist');
+            }
+            
+            $route = self::$nameRoutes[$name];
+
+            foreach ($params as $key => $value) {
+                $route = str_replace('{'.$key.'}', $value, $route);
+            }
+
+            return $route;
+
+        }
+
         protected static function formatRoute($route) 
         {
             return '/' . trim($route, '/');

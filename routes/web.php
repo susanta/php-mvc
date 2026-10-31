@@ -14,9 +14,9 @@
 
 
     Router::post('/register', 'UserController@register');
-    Router::post('/login', 'UserController@loginUser');
+    Router::post('/login', 'UserController@loginUser')->name('login');
     Router::post('/logout', 'UserController@logout');
-    Router::post('/admin/users/update', 'UserController@updateProfile');
+    Router::post('/admin/users/update', 'UserController@updateProfile')->name('update.profile');
     Router::post('/admin/profile/users/password/update', 'UserController@updateUserProfilePassword');
 
     
