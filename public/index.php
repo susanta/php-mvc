@@ -3,7 +3,9 @@
     require_once __DIR__ . '/../app/init.php';
     require_once __DIR__ . '/../routes/web.php';
 
-    $router->dispatch();
+    // $router->dispatch();
+
+    Router::dispatch();
 
     // // check class imported correctly
     // // $test = new Test();

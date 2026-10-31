@@ -1,26 +1,23 @@
 <?php
 
-    $router = new Route();   
+    Router::get('/', 'HomeController@index');
+    Router::get('/about', 'HomeController@about');
+    Router::get('/contact', 'HomeController@contact');
+    Router::get('/user/register', 'UserController@showRegisterForm');
+    Router::get('/user/login', 'UserController@showLoginForm');
+    Router::get('/dashboard', 'AdminController@dashboard');
+    Router::get('/admin', 'AdminController@admin');
+    Router::get('/admin/users/profile', 'UserController@showProfile');
 
-
-    $router->get('/', 'HomeController@index');
-    $router->get('/about', 'HomeController@about');
-    $router->get('/contact', 'HomeController@contact');
-    $router->get('/user/register', 'UserController@showRegisterForm');
-    $router->get('/user/login', 'UserController@showLoginForm');
-    $router->get('/dashboard', 'AdminController@dashboard');
-    $router->get('/admin', 'AdminController@admin');
-    $router->get('/admin/users/profile', 'UserController@showProfile');
-
-    $router->get('/users/test/{id}', 'UserController@testMethod');
+    Router::get('/users/test/{id}', 'UserController@testMethod');
 
 
 
-    $router->post('/register', 'UserController@register');
-    $router->post('/login', 'UserController@loginUser');
-    $router->post('/logout', 'UserController@logout');
-    $router->post('/admin/users/update', 'UserController@updateProfile');
-    $router->post('/admin/profile/users/password/update', 'UserController@updateUserProfilePassword');
+    Router::post('/register', 'UserController@register');
+    Router::post('/login', 'UserController@loginUser');
+    Router::post('/logout', 'UserController@logout');
+    Router::post('/admin/users/update', 'UserController@updateProfile');
+    Router::post('/admin/profile/users/password/update', 'UserController@updateUserProfilePassword');
 
     
 
