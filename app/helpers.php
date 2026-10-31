@@ -28,6 +28,10 @@
         return base_path('app/views' . '/' . ltrim($path, '/'));
     }
 
+    function route($name, $parameters = []) {
+        return Router::route($name, $parameters);
+    }
+
     function redirect($path = '', $queryParams = []){
         $url = base_url($path);
         if(!empty($queryParams)){

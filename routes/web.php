@@ -11,6 +11,9 @@
 
     Router::get('/users/test/{id}', 'UserController@testMethod');
 
+    Router::get('/admin/test/{id}', 'AdminController@test')->name('admin.test');
+
+
 
 
     Router::post('/register', 'UserController@register');

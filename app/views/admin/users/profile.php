@@ -122,7 +122,7 @@
 
                     <!-- Settings Tab -->
                     <div class="tab-pane <?php echo $activeTab == '#settings' ? 'active' : ''; ?>" id="settings">
-                        <form action="<?php echo Router::route('update.profile'); ?>" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                        <form action="<?php echo route('update.profile'); ?>" class="form-horizontal" method="POST" enctype="multipart/form-data">
                             <div class="form-group row">
                                 <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
                                 <div class="col-sm-10">
