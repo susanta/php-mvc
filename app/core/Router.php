@@ -7,15 +7,32 @@
             'POST' => []
         ];
 
+        protected static $nameRoutes = [];
+
         public static function get($path, $handler) 
         {
             self::$routes['GET'][self::formatRoute($path)] = $handler;
+
+            return new static;
         }
 
         public static function post($path, $handler) 
         {
             self::$routes['POST'][self::formatRoute($path)] = $handler;
 
+            return new static;
+
+        }
+
+        public static function name($routerName)
+        {
+            $lastRoute = array_key_last(self::$routes['GET'] + self::$routes['POST']);
+
+            if($lastRoute !== null) {
+                self::$nameRoutes[$routerName] = $lastRoute;
+            }
+
+            return new static;
         }
 
         protected static function formatRoute($route) 
