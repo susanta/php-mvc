@@ -8,17 +8,26 @@
         ];
 
         protected static $nameRoutes = [];
+        protected static $lastAddedRoute = null;
 
         public static function get($path, $handler) 
         {
+            // self::$routes['GET'][self::formatRoute($path)] = $handler;
+
+            $formattedPath = self::formatRoute($path);
             self::$routes['GET'][self::formatRoute($path)] = $handler;
+            self::$lastAddedRoute = $formattedPath;
 
             return new static;
         }
 
         public static function post($path, $handler) 
         {
+            // self::$routes['POST'][self::formatRoute($path)] = $handler;
+
+            $formattedPath = self::formatRoute($path);
             self::$routes['POST'][self::formatRoute($path)] = $handler;
+            self::$lastAddedRoute = $formattedPath;
 
             return new static;
 
@@ -26,11 +35,18 @@
 
         public static function name($routerName)
         {
-            $lastRoute = array_key_last(self::$routes['GET'] + self::$routes['POST']);
-
-            if($lastRoute !== null) {
-                self::$nameRoutes[$routerName] = $lastRoute;
+            if(self::$lastAddedRoute !== null) {
+                self::$nameRoutes[$routerName] = self::$lastAddedRoute;
+                self::$lastAddedRoute = null;
+            } else {
+                throw new Exception("No route available for named $routerName");
             }
+
+            // $lastRoute = array_key_last(self::$routes['GET'] + self::$routes['POST']);
+
+            // if($lastRoute !== null) {
+            //     self::$nameRoutes[$routerName] = $lastRoute;
+            // }
 
             return new static;
         }
